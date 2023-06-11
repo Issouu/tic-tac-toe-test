@@ -1,0 +1,28 @@
+version: 2.1
+
+orbs:
+  node: circleci/node@5.1.0
+
+jobs:
+  eslint:
+    executor: node/default
+    steps:
+      - checkout
+      - node/install-packages:
+          pkg-manager: yarn 
+      - run:
+          name: Run ESLint
+          command: yarn run eslint . --max-warnings 0
+
+workflows:
+  leagueMasterCI:
+    jobs:
+      - node/test:
+          version: '16.10'
+          pkg-manager: yarn
+          filters:
+            branches:
+              only: main
+      - eslint:
+          requires:
+            - node/test
