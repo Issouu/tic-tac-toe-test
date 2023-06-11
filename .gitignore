@@ -4,3 +4,4 @@ obj/
 Debug/
 bin/
 curlpp/
+node_modules/
