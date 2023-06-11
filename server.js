@@ -2,16 +2,20 @@ const express = require('express');
 const app = express();
 const port = 3000;
 const TicTacToe = require('./src/tic-tac-toe.js');
+const bodyParser = require('body-parser');
 
 let game = new TicTacToe();
 
 app.use(express.static('public'));
 app.use('/node_modules', express.static('node_modules'));
+app.use(bodyParser.json());
 
 app.get('/api/game', (req, res) => {
   const gameField = game.gameField;
-  res.json({gameField});
+  const winner = game.getWinner(); // Add this line to get the winner
+  res.json({ gameField, winner }); // Include the winner in the response
 });
+
 
 app.post('/api/move', (req, res) => {
   const {rowIndex, colIndex} = req.body;
