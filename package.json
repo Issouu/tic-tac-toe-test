@@ -1,10 +1,7 @@
 {
     "scripts": {
-        "test": "mocha -r ./test/setup-mocha.js"
-    },
-    "author": "",
-    "engines": {
-        "node": "<=14"
+        "test": "./test/test.sh",
+        "stop": "kill $(lsof -t -i:3000)"
     },
     "devDependencies": {
         "chai": "^3.5.0",
@@ -16,7 +13,9 @@
         "eslint-plugin-promise": "^6.1.1",
         "mocha": "^10.2.0",
         "sinon": "^1.17.5",
-        "sinon-chai": "^2.8.0"
+        "sinon-chai": "^2.8.0",
+        "chai-http": "^4.4.0",
+        "wait-on": "^7.0.1"
     },
     "dependencies": {
         "axios": "^1.4.0",
