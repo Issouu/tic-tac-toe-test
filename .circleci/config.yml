@@ -24,6 +24,9 @@ jobs:
       - attach_workspace:
           at: .
       - run:
+          name: List Files in Workspace
+          command: ls -a
+      - run:
           name: Check Coverage
           command: yarn nyc report --check-coverage --temp-directory .nyc_output
   
