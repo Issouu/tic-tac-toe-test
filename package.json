@@ -11,12 +11,11 @@
         "eslint-plugin-import": "^2.27.5",
         "eslint-plugin-n": "^16.0.0",
         "eslint-plugin-promise": "^6.1.1",
-        "istanbul-reports": "^3.1.5",
         "mocha": "^10.2.0",
-        "nyc": "^15.1.0",
         "sinon": "^1.17.5",
         "sinon-chai": "^2.8.0",
-        "wait-on": "^7.0.1"
+        "wait-on": "^7.0.1",
+        "nyc": "^15.1.0"
     },
     "dependencies": {
         "axios": "^1.4.0",
@@ -26,7 +25,8 @@
         "node-fetch": "^2.6.1",
         "semver": "^6.3.0"
     },
-    "nyc": {
+    "nyc":
+    {
         "branches": 100,
         "lines": 90,
         "functions": 100,
