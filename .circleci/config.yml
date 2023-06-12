@@ -4,31 +4,22 @@ orbs:
   node: circleci/node@5.1.0
 
 jobs:
-  build:
+  test:
     executor: node/default
     steps:
       - checkout
       - node/install-packages:
           pkg-manager: yarn 
       - run:
-          name: Build app
-          command: yarn build
+          name: Run Tests
+          command: yarn run test
       - persist_to_workspace:
           root: .
           paths:
             - .nyc_output
             - package.json
             - yarn.lock
-  test:
-    executor: node/default
-    steps:
-      - attach_workspace:
-          at: .
-      - node/install-packages:
-          pkg-manager: yarn 
-      - run:
-          name: Run Tests
-          command: yarn run test
+
   coverage:
     executor: node/default
     steps:
@@ -53,13 +44,11 @@ jobs:
 workflows:
   tictactoeCI:
     jobs:
-      - build
-      - test:
-          requires:
-            - build
-      - eslint:
-          requires:
-          - test
+      - node/test:
+            version: '16.10'
+            pkg-manager: yarn
+      - test
       - coverage:
           requires:
             - test
+      - eslint
