@@ -42,8 +42,6 @@ workflows:
     jobs:
       - eslint
       - test:
-          version: '16.10'
-          pkg-manager: yarn
           requires:
             - eslint
       - coverage:
