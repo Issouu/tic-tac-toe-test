@@ -54,12 +54,10 @@ jobs:
 workflows:
   tictactoeCI:
     jobs:
-      - node/test:
-            version: '16.10'
-            pkg-manager: yarn
+      - build
       - test:
           requires:
-            - node/test
+            - build
       - coverage:
           requires:
             - test
