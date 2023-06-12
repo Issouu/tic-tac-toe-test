@@ -30,7 +30,7 @@ if [ -n "$PORT" ]; then
 fi
 
 # Run Mocha tests
-MOCHA_COMMAND="mocha -r ./test/setup-mocha.js --colors"
+MOCHA_COMMAND="nyc mocha -r ./test/setup-mocha.js --colors"
 MOCHA_OUTPUT=$(eval $MOCHA_COMMAND)
 
 # Check the exit code of the Mocha command
@@ -40,4 +40,5 @@ if [ $MOCHA_EXIT_CODE -eq 0 ]; then
 else
   echo -e "\033[31mSome tests failed. Mocha output:\033[0m"
   echo "$MOCHA_OUTPUT"
+  exit 1
 fi

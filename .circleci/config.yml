@@ -4,6 +4,29 @@ orbs:
   node: circleci/node@5.1.0
 
 jobs:
+  test:
+    executor: node/default
+    steps:
+      - checkout
+      - node/install-packages:
+          pkg-manager: yarn 
+      - run:
+          name: Run Tests
+          command: yarn run test
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .nyc_output
+
+  coverage:
+    executor: node/default
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: Check Coverage
+          command: npx nyc report --check-coverage --temp-directory .nyc_output
+  
   eslint:
     executor: node/default
     steps:
@@ -15,14 +38,14 @@ jobs:
           command: yarn run eslint . --max-warnings 0
 
 workflows:
-  leagueMasterCI:
+  tictactoeCI:
     jobs:
-      - node/test:
+      - eslint
+      - test:
           version: '16.10'
           pkg-manager: yarn
-          filters:
-            branches:
-              only: main
-      - eslint:
           requires:
-            - node/test
+            - eslint
+      - coverage:
+          requires:
+            - test

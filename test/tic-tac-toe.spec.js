@@ -323,7 +323,7 @@ describe('TicTacToe', () => {
   });
   describe('getWinner', () => {
     it('should return winner of the game or null', () => {
-      const game = new TicTacToe();
+      let game = new TicTacToe();
       game.nextTurn(2, 1);
       expect(game.getWinner()).to.equal(null);
 
@@ -373,6 +373,22 @@ describe('TicTacToe', () => {
       expect(game.getWinner()).to.equal(null);
 
       game.nextTurn(1, 1);
+      expect(game.getWinner()).to.equal(null);
+
+      game.nextTurn(2, 0);
+      expect(game.getWinner()).to.equal('x');
+
+      game = new TicTacToe();
+      game.nextTurn(0, 2);
+      expect(game.getWinner()).to.equal(null);
+
+      game.nextTurn(0, 1);
+      expect(game.getWinner()).to.equal(null);
+
+      game.nextTurn(1, 1);
+      expect(game.getWinner()).to.equal(null);
+
+      game.nextTurn(0, 0);
       expect(game.getWinner()).to.equal(null);
 
       game.nextTurn(2, 0);

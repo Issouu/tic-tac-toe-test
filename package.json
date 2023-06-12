@@ -5,16 +5,18 @@
     },
     "devDependencies": {
         "chai": "^3.5.0",
+        "chai-http": "^4.4.0",
         "eslint": "^8.42.0",
         "eslint-config-google": "^0.14.0",
         "eslint-config-standard": "^17.1.0",
         "eslint-plugin-import": "^2.27.5",
         "eslint-plugin-n": "^16.0.0",
         "eslint-plugin-promise": "^6.1.1",
+        "istanbul-reports": "^3.1.5",
         "mocha": "^10.2.0",
+        "nyc": "^15.1.0",
         "sinon": "^1.17.5",
         "sinon-chai": "^2.8.0",
-        "chai-http": "^4.4.0",
         "wait-on": "^7.0.1"
     },
     "dependencies": {
@@ -24,5 +26,11 @@
         "node": "^19.6.0",
         "node-fetch": "^2.6.1",
         "semver": "^6.3.0"
+    },
+    "nyc": {
+        "branches": 100,
+        "lines": 90,
+        "functions": 100,
+        "statements": 90
     }
 }
