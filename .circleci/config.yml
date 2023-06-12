@@ -44,12 +44,12 @@ jobs:
 workflows:
   tictactoeCI:
     jobs:
-      - node/test:
+      - build:
             version: '16.10'
             pkg-manager: yarn
       - test:
           requires:
-            - node/test
+            - build
       - coverage:
           requires:
             - test
