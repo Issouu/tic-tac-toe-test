@@ -44,10 +44,13 @@ jobs:
 workflows:
   tictactoeCI:
     jobs:
-      - test
-      - eslint:
+      - node/test:
+            version: '16.10'
+            pkg-manager: yarn
+      - test:
           requires:
-          - test
+            - node/test
       - coverage:
           requires:
             - test
+      - eslint
