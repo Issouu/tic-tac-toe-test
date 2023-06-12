@@ -44,8 +44,8 @@ jobs:
 workflows:
   tictactoeCI:
     jobs:
-      - test:
-      - eslint
+      - test
+      - eslint:
           requires:
           - test
       - coverage:
