@@ -24,9 +24,8 @@ jobs:
     steps:
       - attach_workspace:
           at: .
-      - run:
-          name: List Files in Workspace
-          command: ls -a
+      - node/install-packages:
+          pkg-manager: yarn 
       - run:
           name: Check Coverage
           command: yarn nyc report --check-coverage --temp-directory .nyc_output
