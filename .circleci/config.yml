@@ -4,8 +4,6 @@ orbs:
   node: circleci/node@5.1.0
 
 jobs:
-  build:
-    executor: node/test
   test:
     executor: node/default
     steps:
@@ -46,12 +44,12 @@ jobs:
 workflows:
   tictactoeCI:
     jobs:
-      - build:
+      - node/test:
             version: '16.10'
             pkg-manager: yarn
       - test:
           requires:
-            - build
+            - node/test
       - coverage:
           requires:
             - test
