@@ -1,7 +1,6 @@
 {
     "scripts": {
-        "test": "bash ./test/test.sh",
-        "stop": "kill $(lsof -t -i:3000)"
+        "test": "bash ./test/test.sh"
     },
     "devDependencies": {
         "chai": "^3.5.0",

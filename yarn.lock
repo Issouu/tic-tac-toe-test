@@ -2223,7 +2223,7 @@ normalize-path@^3.0.0, normalize-path@~3.0.0:
 
 nyc@^15.1.0:
   version "15.1.0"
-  resolved "https://registry.npmjs.org/nyc/-/nyc-15.1.0.tgz"
+  resolved "https://registry.yarnpkg.com/nyc/-/nyc-15.1.0.tgz#1335dae12ddc87b6e249d5a1994ca4bdaea75f02"
   integrity sha512-jMW04n9SxKdKi1ZMGhvUTHBN0EICCRkHemEoE5jm6mTYcqcdas0ATzgUgejlQUHMvpnOZqGB5Xxsv9KxJW1j8A==
   dependencies:
     "@istanbuljs/load-nyc-config" "^1.0.0"

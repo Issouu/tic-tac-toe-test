@@ -25,7 +25,7 @@ jobs:
           at: .
       - run:
           name: Check Coverage
-          command: npx nyc report --check-coverage --temp-directory .nyc_output
+          command: yarn nyc report --check-coverage --temp-directory .nyc_output
   
   eslint:
     executor: node/default
