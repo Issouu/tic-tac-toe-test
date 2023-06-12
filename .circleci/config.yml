@@ -44,10 +44,10 @@ jobs:
 workflows:
   tictactoeCI:
     jobs:
-      - eslint
       - test:
+      - eslint
           requires:
-            - eslint
+          - test
       - coverage:
           requires:
             - test
