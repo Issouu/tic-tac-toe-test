@@ -53,7 +53,6 @@ function render() {
   });
 }
 
-// Event listener for the Reset button
 resetBtn.addEventListener('click', () => {
   axios.get('/api/reset')
       .then(() => {
@@ -65,10 +64,8 @@ resetBtn.addEventListener('click', () => {
       });
 });
 
-// Event listener for clicking on the board
 gameCanvas.addEventListener('click', handleMove);
 
-// Function to handle the move on the board
 function handleMove(e) {
   if (!e.target.classList.contains('column')) {
     return;
@@ -89,5 +86,4 @@ function handleMove(e) {
       });
 }
 
-// Initial render
 render();

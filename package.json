@@ -12,8 +12,6 @@
         "eslint-plugin-n": "^16.0.0",
         "eslint-plugin-promise": "^6.1.1",
         "mocha": "^10.2.0",
-        "sinon": "^1.17.5",
-        "sinon-chai": "^2.8.0",
         "wait-on": "^7.0.1",
         "nyc": "^15.1.0"
     },
