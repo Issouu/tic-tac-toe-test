@@ -17,6 +17,7 @@ jobs:
           root: .
           paths:
             - .nyc_output
+            - .package.json
 
   coverage:
     executor: node/default
