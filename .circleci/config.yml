@@ -47,7 +47,9 @@ workflows:
       - node/test:
             version: '16.10'
             pkg-manager: yarn
-      - test
+      - test:
+          requires:
+            - node/test
       - coverage:
           requires:
             - test
